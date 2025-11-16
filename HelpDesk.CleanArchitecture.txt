@@ -1,0 +1,536 @@
+Folder PATH listing for volume DATA
+Volume serial number is D3FD-2410
+D:.
+¦   HelpDesk.CleanArchitecture.txt
+¦   HelpDesk.sln
+¦   
++---.config
+¦       dotnet-tools.json
+¦       
++---HelpDesk.API
+¦   ¦   appsettings.Development.json
+¦   ¦   appsettings.json
+¦   ¦   HelpDesk.API.csproj
+¦   ¦   HelpDesk.API.csproj.user
+¦   ¦   Program.cs
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦       +---net9.0
+¦   ¦           ¦   appsettings.Development.json
+¦   ¦           ¦   appsettings.json
+¦   ¦           ¦   Azure.Core.dll
+¦   ¦           ¦   Azure.Identity.dll
+¦   ¦           ¦   Elasticsearch.Net.dll
+¦   ¦           ¦   FluentValidation.DependencyInjectionExtensions.dll
+¦   ¦           ¦   FluentValidation.dll
+¦   ¦           ¦   HelpDesk.API.deps.json
+¦   ¦           ¦   HelpDesk.API.dll
+¦   ¦           ¦   HelpDesk.API.exe
+¦   ¦           ¦   HelpDesk.API.pdb
+¦   ¦           ¦   HelpDesk.API.runtimeconfig.json
+¦   ¦           ¦   HelpDesk.API.staticwebassets.endpoints.json
+¦   ¦           ¦   HelpDesk.Application.dll
+¦   ¦           ¦   HelpDesk.Application.pdb
+¦   ¦           ¦   HelpDesk.Domain.dll
+¦   ¦           ¦   HelpDesk.Domain.pdb
+¦   ¦           ¦   HelpDesk.Infrastructure.dll
+¦   ¦           ¦   HelpDesk.Infrastructure.pdb
+¦   ¦           ¦   Humanizer.dll
+¦   ¦           ¦   Mapster.Core.dll
+¦   ¦           ¦   Mapster.dll
+¦   ¦           ¦   MediatR.Contracts.dll
+¦   ¦           ¦   MediatR.dll
+¦   ¦           ¦   Microsoft.AspNetCore.Authentication.JwtBearer.dll
+¦   ¦           ¦   Microsoft.AspNetCore.Cryptography.Internal.dll
+¦   ¦           ¦   Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+¦   ¦           ¦   Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+¦   ¦           ¦   Microsoft.Bcl.AsyncInterfaces.dll
+¦   ¦           ¦   Microsoft.Build.Locator.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.CSharp.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.Workspaces.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+¦   ¦           ¦   Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+¦   ¦           ¦   Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.Abstractions.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.Design.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.Relational.dll
+¦   ¦           ¦   Microsoft.EntityFrameworkCore.SqlServer.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Caching.Memory.dll
+¦   ¦           ¦   Microsoft.Extensions.Configuration.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyInjection.dll
+¦   ¦           ¦   Microsoft.Extensions.DependencyModel.dll
+¦   ¦           ¦   Microsoft.Extensions.Identity.Core.dll
+¦   ¦           ¦   Microsoft.Extensions.Identity.Stores.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.Abstractions.dll
+¦   ¦           ¦   Microsoft.Extensions.Logging.dll
+¦   ¦           ¦   Microsoft.Extensions.Options.dll
+¦   ¦           ¦   Microsoft.Extensions.Primitives.dll
+¦   ¦           ¦   Microsoft.Identity.Client.dll
+¦   ¦           ¦   Microsoft.Identity.Client.Extensions.Msal.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Abstractions.dll
+¦   ¦           ¦   Microsoft.IdentityModel.JsonWebTokens.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Logging.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+¦   ¦           ¦   Microsoft.IdentityModel.Tokens.dll
+¦   ¦           ¦   Microsoft.OpenApi.dll
+¦   ¦           ¦   Microsoft.SqlServer.Server.dll
+¦   ¦           ¦   Microsoft.Win32.SystemEvents.dll
+¦   ¦           ¦   Mono.TextTemplating.dll
+¦   ¦           ¦   Serilog.AspNetCore.dll
+¦   ¦           ¦   Serilog.dll
+¦   ¦           ¦   Serilog.Extensions.Hosting.dll
+¦   ¦           ¦   Serilog.Extensions.Logging.dll
+¦   ¦           ¦   Serilog.Formatting.Compact.dll
+¦   ¦           ¦   Serilog.Formatting.Elasticsearch.dll
+¦   ¦           ¦   Serilog.Settings.Configuration.dll
+¦   ¦           ¦   Serilog.Sinks.Console.dll
+¦   ¦           ¦   Serilog.Sinks.Debug.dll
+¦   ¦           ¦   Serilog.Sinks.Elasticsearch.dll
+¦   ¦           ¦   Serilog.Sinks.File.dll
+¦   ¦           ¦   Serilog.Sinks.PeriodicBatching.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.Swagger.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.SwaggerGen.dll
+¦   ¦           ¦   Swashbuckle.AspNetCore.SwaggerUI.dll
+¦   ¦           ¦   System.ClientModel.dll
+¦   ¦           ¦   System.CodeDom.dll
+¦   ¦           ¦   System.Composition.AttributedModel.dll
+¦   ¦           ¦   System.Composition.Convention.dll
+¦   ¦           ¦   System.Composition.Hosting.dll
+¦   ¦           ¦   System.Composition.Runtime.dll
+¦   ¦           ¦   System.Composition.TypedParts.dll
+¦   ¦           ¦   System.Configuration.ConfigurationManager.dll
+¦   ¦           ¦   System.Drawing.Common.dll
+¦   ¦           ¦   System.IdentityModel.Tokens.Jwt.dll
+¦   ¦           ¦   System.Memory.Data.dll
+¦   ¦           ¦   System.Runtime.Caching.dll
+¦   ¦           ¦   System.Security.Cryptography.ProtectedData.dll
+¦   ¦           ¦   System.Security.Permissions.dll
+¦   ¦           ¦   System.Windows.Extensions.dll
+¦   ¦           ¦   
+¦   ¦           +---cs
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---de
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---es
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---fr
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---it
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ja
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ko
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pl
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---pt-BR
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---ru
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---runtimes
+¦   ¦           ¦   +---unix
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net6.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               System.Drawing.Common.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win
+¦   ¦           ¦   ¦   +---lib
+¦   ¦           ¦   ¦       +---net6.0
+¦   ¦           ¦   ¦               Microsoft.Data.SqlClient.dll
+¦   ¦           ¦   ¦               Microsoft.Win32.SystemEvents.dll
+¦   ¦           ¦   ¦               System.Drawing.Common.dll
+¦   ¦           ¦   ¦               System.Runtime.Caching.dll
+¦   ¦           ¦   ¦               System.Security.Cryptography.ProtectedData.dll
+¦   ¦           ¦   ¦               System.Windows.Extensions.dll
+¦   ¦           ¦   ¦               
+¦   ¦           ¦   +---win-arm
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-arm64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x64
+¦   ¦           ¦   ¦   +---native
+¦   ¦           ¦   ¦           Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦   ¦           
+¦   ¦           ¦   +---win-x86
+¦   ¦           ¦       +---native
+¦   ¦           ¦               Microsoft.Data.SqlClient.SNI.dll
+¦   ¦           ¦               
+¦   ¦           +---tr
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hans
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦           ¦       Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦           ¦       
+¦   ¦           +---zh-Hant
+¦   ¦                   Microsoft.CodeAnalysis.CSharp.resources.dll
+¦   ¦                   Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+¦   ¦                   Microsoft.CodeAnalysis.resources.dll
+¦   ¦                   Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+¦   ¦                   Microsoft.CodeAnalysis.Workspaces.resources.dll
+¦   ¦                   
+¦   +---Controllers
+¦   ¦       AuthController.cs
+¦   ¦       TicketsController.cs
+¦   ¦       
+¦   +---Middleware
+¦   ¦       ExceptionsHandlingMiddleware.cs
+¦   ¦       
+¦   +---obj
+¦   ¦   ¦   HelpDesk.API.csproj.EntityFrameworkCore.targets
+¦   ¦   ¦   HelpDesk.API.csproj.nuget.dgspec.json
+¦   ¦   ¦   HelpDesk.API.csproj.nuget.g.props
+¦   ¦   ¦   HelpDesk.API.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦       +---net10.0
+¦   ¦       ¦   ¦   .NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+¦   ¦       ¦   ¦   HelpDesk.API.AssemblyInfo.cs
+¦   ¦       ¦   ¦   HelpDesk.API.AssemblyInfoInputs.cache
+¦   ¦       ¦   ¦   HelpDesk.API.assets.cache
+¦   ¦       ¦   ¦   HelpDesk.API.csproj.AssemblyReference.cache
+¦   ¦       ¦   ¦   HelpDesk.API.csproj.CoreCompileInputs.cache
+¦   ¦       ¦   ¦   HelpDesk.API.csproj.FileListAbsolute.txt
+¦   ¦       ¦   ¦   HelpDesk.API.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦       ¦   ¦   HelpDesk.API.GlobalUsings.g.cs
+¦   ¦       ¦   ¦   HelpDesk.API.MvcApplicationPartsAssemblyInfo.cache
+¦   ¦       ¦   ¦   HelpDesk.API.MvcApplicationPartsAssemblyInfo.cs
+¦   ¦       ¦   ¦   rpswa.dswa.cache.json
+¦   ¦       ¦   ¦   staticwebassets.removed.txt
+¦   ¦       ¦   ¦   
+¦   ¦       ¦   +---ref
+¦   ¦       ¦   +---refint
+¦   ¦       ¦   +---staticwebassets
+¦   ¦       +---net9.0
+¦   ¦           ¦   .NETCoreApp,Version=v9.0.AssemblyAttributes.cs
+¦   ¦           ¦   apphost.exe
+¦   ¦           ¦   HelpDesk.157B5555.Up2Date
+¦   ¦           ¦   HelpDesk.API.AssemblyInfo.cs
+¦   ¦           ¦   HelpDesk.API.AssemblyInfoInputs.cache
+¦   ¦           ¦   HelpDesk.API.assets.cache
+¦   ¦           ¦   HelpDesk.API.csproj.AssemblyReference.cache
+¦   ¦           ¦   HelpDesk.API.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   HelpDesk.API.csproj.FileListAbsolute.txt
+¦   ¦           ¦   HelpDesk.API.dll
+¦   ¦           ¦   HelpDesk.API.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   HelpDesk.API.genruntimeconfig.cache
+¦   ¦           ¦   HelpDesk.API.GlobalUsings.g.cs
+¦   ¦           ¦   HelpDesk.API.MvcApplicationPartsAssemblyInfo.cache
+¦   ¦           ¦   HelpDesk.API.MvcApplicationPartsAssemblyInfo.cs
+¦   ¦           ¦   HelpDesk.API.pdb
+¦   ¦           ¦   rjsmcshtml.dswa.cache.json
+¦   ¦           ¦   rjsmrazor.dswa.cache.json
+¦   ¦           ¦   rpswa.dswa.cache.json
+¦   ¦           ¦   staticwebassets.build.endpoints.json
+¦   ¦           ¦   staticwebassets.build.json
+¦   ¦           ¦   staticwebassets.build.json.cache
+¦   ¦           ¦   staticwebassets.references.upToDateCheck.txt
+¦   ¦           ¦   staticwebassets.removed.txt
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       HelpDesk.API.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦           ¦       HelpDesk.API.dll
+¦   ¦           ¦       
+¦   ¦           +---staticwebassets
+¦   +---Properties
+¦           launchSettings.json
+¦           
++---HelpDesk.Application
+¦   ¦   DependencyInjection.cs
+¦   ¦   HelpDesk.Application.csproj
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net9.0
+¦   ¦               HelpDesk.Application.deps.json
+¦   ¦               HelpDesk.Application.dll
+¦   ¦               HelpDesk.Application.pdb
+¦   ¦               HelpDesk.Domain.dll
+¦   ¦               HelpDesk.Domain.pdb
+¦   ¦               
+¦   +---Commands
+¦   ¦       CloseTicketCommand.cs
+¦   ¦       CreateTicketCommand.cs
+¦   ¦       ReplyTicketCommand.cs
+¦   ¦       
+¦   +---DTOs
+¦   ¦       BaseResponse.cs
+¦   ¦       TicketDto.cs
+¦   ¦       
+¦   +---Handlers
+¦   ¦       CreateTicketHandler.cs
+¦   ¦       ReplyTicketHandler.cs
+¦   ¦       
+¦   +---Interfaces
+¦   ¦       IEmailSender.cs
+¦   ¦       IGenericRepository.cs
+¦   ¦       IUnitOfWork.cs
+¦   ¦       
+¦   +---Mappings
+¦   ¦       MapsterConfig.cs
+¦   ¦       
+¦   +---obj
+¦   ¦   ¦   HelpDesk.Application.csproj.nuget.dgspec.json
+¦   ¦   ¦   HelpDesk.Application.csproj.nuget.g.props
+¦   ¦   ¦   HelpDesk.Application.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦       +---net9.0
+¦   ¦           ¦   .NETCoreApp,Version=v9.0.AssemblyAttributes.cs
+¦   ¦           ¦   HelpDesk.026280F4.Up2Date
+¦   ¦           ¦   HelpDesk.Application.AssemblyInfo.cs
+¦   ¦           ¦   HelpDesk.Application.AssemblyInfoInputs.cache
+¦   ¦           ¦   HelpDesk.Application.assets.cache
+¦   ¦           ¦   HelpDesk.Application.csproj.AssemblyReference.cache
+¦   ¦           ¦   HelpDesk.Application.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   HelpDesk.Application.csproj.FileListAbsolute.txt
+¦   ¦           ¦   HelpDesk.Application.dll
+¦   ¦           ¦   HelpDesk.Application.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   HelpDesk.Application.GlobalUsings.g.cs
+¦   ¦           ¦   HelpDesk.Application.pdb
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       HelpDesk.Application.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   HelpDesk.Application.dll
+¦   ¦                   
+¦   +---Validators
+¦           CreateTicketCommandValidator.cs
+¦           ReplyTicketCommandValidator.cs
+¦           
++---HelpDesk.Domain
+¦   ¦   HelpDesk.Domain.csproj
+¦   ¦   
+¦   +---bin
+¦   ¦   +---Debug
+¦   ¦       +---net9.0
+¦   ¦               HelpDesk.Domain.deps.json
+¦   ¦               HelpDesk.Domain.dll
+¦   ¦               HelpDesk.Domain.pdb
+¦   ¦               
+¦   +---Entities
+¦   ¦   +---Common
+¦   ¦   ¦       BaseEntity.cs
+¦   ¦   ¦       DomainEvents.cs
+¦   ¦   ¦       IDomainEvent.cs
+¦   ¦   ¦       
+¦   ¦   +---HelpDesk
+¦   ¦           Ticket.cs
+¦   ¦           TicketComment.cs
+¦   ¦           TicketStatusHistory.cs
+¦   ¦           
+¦   +---Events
+¦   ¦       TicketAssignedEvent.cs
+¦   ¦       TicketClosedEvent.cs
+¦   ¦       TicketRepliedEvent.cs
+¦   ¦       
+¦   +---Exceptions
+¦   ¦       DomainException.cs
+¦   ¦       
+¦   +---obj
+¦   ¦   ¦   HelpDesk.Domain.csproj.nuget.dgspec.json
+¦   ¦   ¦   HelpDesk.Domain.csproj.nuget.g.props
+¦   ¦   ¦   HelpDesk.Domain.csproj.nuget.g.targets
+¦   ¦   ¦   project.assets.json
+¦   ¦   ¦   project.nuget.cache
+¦   ¦   ¦   
+¦   ¦   +---Debug
+¦   ¦       +---net9.0
+¦   ¦           ¦   .NETCoreApp,Version=v9.0.AssemblyAttributes.cs
+¦   ¦           ¦   HelpDesk.Domain.AssemblyInfo.cs
+¦   ¦           ¦   HelpDesk.Domain.AssemblyInfoInputs.cache
+¦   ¦           ¦   HelpDesk.Domain.assets.cache
+¦   ¦           ¦   HelpDesk.Domain.csproj.CoreCompileInputs.cache
+¦   ¦           ¦   HelpDesk.Domain.csproj.FileListAbsolute.txt
+¦   ¦           ¦   HelpDesk.Domain.dll
+¦   ¦           ¦   HelpDesk.Domain.GeneratedMSBuildEditorConfig.editorconfig
+¦   ¦           ¦   HelpDesk.Domain.GlobalUsings.g.cs
+¦   ¦           ¦   HelpDesk.Domain.pdb
+¦   ¦           ¦   
+¦   ¦           +---ref
+¦   ¦           ¦       HelpDesk.Domain.dll
+¦   ¦           ¦       
+¦   ¦           +---refint
+¦   ¦                   HelpDesk.Domain.dll
+¦   ¦                   
+¦   +---ValueObjects
+¦           CatalogItem.cs
+¦           
++---HelpDesk.Infrastructure
+    ¦   DependencyInjection.cs
+    ¦   HelpDesk.Infrastructure.csproj
+    ¦   
+    +---Auth
+    ¦       AuthenticationExtension.cs
+    ¦       IdentityServiceCollectionExtensions.cs
+    ¦       JwtAuthenticationExtensions.cs
+    ¦       
+    +---bin
+    ¦   +---Debug
+    ¦       +---net9.0
+    ¦               HelpDesk.Application.dll
+    ¦               HelpDesk.Application.pdb
+    ¦               HelpDesk.Domain.dll
+    ¦               HelpDesk.Domain.pdb
+    ¦               HelpDesk.Infrastructure.deps.json
+    ¦               HelpDesk.Infrastructure.dll
+    ¦               HelpDesk.Infrastructure.pdb
+    ¦               HelpDesk.Infrastructure.runtimeconfig.json
+    ¦               
+    +---Identity
+    ¦       Role.cs
+    ¦       RoleClaim.cs
+    ¦       User.cs
+    ¦       UserClaim.cs
+    ¦       UserLogin.cs
+    ¦       UserRole.cs
+    ¦       UserToken.cs
+    ¦       
+    +---MediatR
+    ¦       MediatRExtensions.cs
+    ¦       
+    +---obj
+    ¦   ¦   HelpDesk.Infrastructure.csproj.EntityFrameworkCore.targets
+    ¦   ¦   HelpDesk.Infrastructure.csproj.nuget.dgspec.json
+    ¦   ¦   HelpDesk.Infrastructure.csproj.nuget.g.props
+    ¦   ¦   HelpDesk.Infrastructure.csproj.nuget.g.targets
+    ¦   ¦   project.assets.json
+    ¦   ¦   project.nuget.cache
+    ¦   ¦   
+    ¦   +---Debug
+    ¦       +---net9.0
+    ¦           ¦   .NETCoreApp,Version=v9.0.AssemblyAttributes.cs
+    ¦           ¦   HelpDesk.9093FE75.Up2Date
+    ¦           ¦   HelpDesk.Infrastructure.AssemblyInfo.cs
+    ¦           ¦   HelpDesk.Infrastructure.AssemblyInfoInputs.cache
+    ¦           ¦   HelpDesk.Infrastructure.assets.cache
+    ¦           ¦   HelpDesk.Infrastructure.csproj.AssemblyReference.cache
+    ¦           ¦   HelpDesk.Infrastructure.csproj.CoreCompileInputs.cache
+    ¦           ¦   HelpDesk.Infrastructure.csproj.FileListAbsolute.txt
+    ¦           ¦   HelpDesk.Infrastructure.dll
+    ¦           ¦   HelpDesk.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+    ¦           ¦   HelpDesk.Infrastructure.genruntimeconfig.cache
+    ¦           ¦   HelpDesk.Infrastructure.GlobalUsings.g.cs
+    ¦           ¦   HelpDesk.Infrastructure.pdb
+    ¦           ¦   
+    ¦           +---ref
+    ¦           ¦       HelpDesk.Infrastructure.dll
+    ¦           ¦       
+    ¦           +---refint
+    ¦                   HelpDesk.Infrastructure.dll
+    ¦                   
+    +---Observability
+    ¦       ObservabilityExtensions.cs
+    ¦       SerilogElasticExtension.cs
+    ¦       
+    +---Persistence
+    ¦   ¦   DbSeeder.cs
+    ¦   ¦   DesignTimeDbContextFactory.cs
+    ¦   ¦   HelpDeskDbContext.cs
+    ¦   ¦   LoginHistory.cs
+    ¦   ¦   
+    ¦   +---Configurations
+    ¦       +---HelpDesk
+    ¦       ¦       CatalogItemConfiguration.cs
+    ¦       ¦       LoginHistoryConfiguration.cs
+    ¦       ¦       TicketCommentConfiguration.cs
+    ¦       ¦       TicketConfiguration.cs
+    ¦       ¦       TicketStatusHistoryConfiguration.cs
+    ¦       ¦       
+    ¦       +---Identity
+    ¦               RoleClaimConfiguration.cs
+    ¦               RoleConfiguration.cs
+    ¦               UserClaimConfiguration.cs
+    ¦               UserConfiguration.cs
+    ¦               UserLoginConfiguration.cs
+    ¦               UserRoleConfiguration.cs
+    ¦               UserTokenConfiguration.cs
+    ¦               
+    +---Repositories
+    ¦       GenericRepository.cs
+    ¦       UnitOfWork.cs
+    ¦       
+    +---Services
+        ¦   LoginHistoryService.cs
+        ¦   
+        +---Email
+                SmtpEmailSender.cs
+                SmtpSettings.cs
+                

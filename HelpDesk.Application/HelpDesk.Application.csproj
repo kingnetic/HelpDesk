@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- Validation -->
+
+		<!-- CQRS -->
+		<PackageReference Include="FluentValidation" Version="12.1.0" />
+		<PackageReference Include="MediatR" Version="13.1.0" />
+
+		<!-- Mapping -->
+		<PackageReference Include="Mapster" Version="7.4.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\HelpDesk.Domain\HelpDesk.Domain.csproj" />
+	</ItemGroup>
+
+</Project>
