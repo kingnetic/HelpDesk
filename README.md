@@ -147,13 +147,13 @@ o iniciar con el Dashboard de Aspire:
 dotnet run --project HelpDesk.AppHost
 ```
 
-Dashboard de Aspire estará disponible en: https://localhost:17298/login?t=687a5f5632105027c87508e2b5d6e881
+Dashboard de Aspire estará disponible en: https://localhost:17298
 
 Si Aspire solicita Token, deberá ingresar el identificador que aparece después del parámetro t=
 el cual se muestra en el Console al iniciar Aspire
 
 ```bash
-Login to the dashboard at https://localhost:17298
+Login to the dashboard at https://localhost:17298/login?t=687a5f5632105027c87508e2b5d6e881
 ```
 
 
