@@ -10,5 +10,6 @@ namespace HelpDesk.Application.Interfaces
         void Update(T entity);
         void Remove(T entity);
         IQueryable<T> Query();
+        Task<System.Collections.Generic.List<T>> GetAllAsync(System.Threading.CancellationToken ct = default);
     }
 }

@@ -1,0 +1,244 @@
+2025-11-21 15:36:51.900 -06:00 [INF] Starting HelpDesk API
+2025-11-21 15:36:52.573 -06:00 [INF] User profile is available. Using 'C:\Users\marvin.gonzalez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 15:36:53.967 -06:00 [INF] Executed DbCommand (35ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-21 15:36:54.002 -06:00 [INF] Acquiring an exclusive lock for migration application. See https://aka.ms/efcore-docs-migrations-lock for more information if this takes too long.
+2025-11-21 15:36:54.056 -06:00 [INF] Executed DbCommand (34ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_getapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session', @LockMode = 'Exclusive';
+SELECT @result
+2025-11-21 15:36:54.240 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+IF OBJECT_ID(N'[__EFMigrationsHistory]') IS NULL
+BEGIN
+    CREATE TABLE [__EFMigrationsHistory] (
+        [MigrationId] nvarchar(150) NOT NULL,
+        [ProductVersion] nvarchar(32) NOT NULL,
+        CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+    );
+END;
+2025-11-21 15:36:54.308 -06:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2025-11-21 15:36:54.325 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2025-11-21 15:36:54.342 -06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2025-11-21 15:36:54.367 -06:00 [INF] No migrations were applied. The database is already up to date.
+2025-11-21 15:36:54.374 -06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+DECLARE @result int;
+EXEC @result = sp_releaseapplock @Resource = '__EFMigrationsLock', @LockOwner = 'Session';
+SELECT @result
+2025-11-21 15:36:54.842 -06:00 [INF] Executed DbCommand (15ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [security].[Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2025-11-21 15:36:54.897 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [security].[Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2025-11-21 15:36:54.902 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [security].[Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedName_0
+2025-11-21 15:36:54.941 -06:00 [INF] Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[Roles] AS [r]
+        WHERE [r].[Name] = N'Admin') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:54.957 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[Roles] AS [r]
+        WHERE [r].[Name] = N'Support') THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:54.970 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Admin' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:54.976 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Admin' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:54.982 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Admin' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:54.989 -06:00 [INF] Executed DbCommand (1ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Admin' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:54.994 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Admin' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.009 -06:00 [INF] Executed DbCommand (11ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Admin' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.014 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Admin' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.024 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Support' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.029 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Support' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.035 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Support' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.041 -06:00 [INF] Executed DbCommand (0ms) [Parameters=[@__permission_0='?' (Size = 100)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [security].[RolePermissions] AS [r]
+        WHERE [r].[RoleName] = N'Support' AND [r].[Permission] = @__permission_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.078 -06:00 [INF] Executed DbCommand (2ms) [Parameters=[@__normalizedEmail_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [u].[Id], [u].[AccessFailedCount], [u].[ConcurrencyStamp], [u].[Email], [u].[EmailConfirmed], [u].[FullName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [security].[Users] AS [u]
+WHERE [u].[NormalizedEmail] = @__normalizedEmail_0
+2025-11-21 15:36:55.152 -06:00 [INF] Executed DbCommand (16ms) [Parameters=[@__normalizedRoleName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(2) [r].[Id], [r].[ConcurrencyStamp], [r].[Name], [r].[NormalizedName]
+FROM [security].[Roles] AS [r]
+WHERE [r].[NormalizedName] = @__normalizedRoleName_0
+2025-11-21 15:36:55.457 -06:00 [INF] Executed DbCommand (4ms) [Parameters=[@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[RoleId]
+FROM [security].[UserRoles] AS [u]
+WHERE [u].[UserId] = @__p_0 AND [u].[RoleId] = @__p_1
+2025-11-21 15:36:55.484 -06:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [helpdesk].[CatalogItems] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.503 -06:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [catalog].[Catalogs] AS [c]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2025-11-21 15:36:55.516 -06:00 [INF] HelpDesk API started successfully
+2025-11-21 15:36:55.626 -06:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5021: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Solo se permite un uso de cada dirección de socket (protocolo/dirección de red/puerto)
+ ---> System.Net.Sockets.SocketException (10048): Solo se permite un uso de cada dirección de socket (protocolo/dirección de red/puerto)
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2025-11-21 15:36:55.660 -06:00 [FTL] Application terminated unexpectedly
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5021: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Solo se permite un uso de cada dirección de socket (protocolo/dirección de red/puerto)
+ ---> System.Net.Sockets.SocketException (10048): Solo se permite un uso de cada dirección de socket (protocolo/dirección de red/puerto)
+   at System.Net.Sockets.Socket.UpdateStatusAfterSocketErrorAndThrowException(SocketError error, Boolean disconnectOnFailure, String callerName)
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+   at Microsoft.Extensions.Hosting.Internal.Host.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.RunAsync(IHost host, CancellationToken token)
+   at Microsoft.Extensions.Hosting.HostingAbstractionsHostExtensions.Run(IHost host)
+   at Program.<Main>$(String[] args) in D:\REPOSITORY\HelpDesk\HelpDesk.API\Program.cs:line 93
+2025-11-21 16:11:58.545 -06:00 [INF] Starting HelpDesk API
+2025-11-21 16:11:59.684 -06:00 [INF] User profile is available. Using 'C:\Users\marvin.gonzalez\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-11-21 16:12:00.697 -06:00 [ERR] An error occurred while seeding the database
+System.InvalidOperationException: An error was generated for warning 'Microsoft.EntityFrameworkCore.Migrations.PendingModelChangesWarning': The model for context 'HelpDeskDbContext' has pending changes. Add a new migration before updating the database. See https://aka.ms/efcore-docs-pending-changes. This exception can be suppressed or logged by passing event ID 'RelationalEventId.PendingModelChangesWarning' to the 'ConfigureWarnings' method in 'DbContext.OnConfiguring' or 'AddDbContext'.
+   at Microsoft.EntityFrameworkCore.Diagnostics.EventDefinition`1.Log[TLoggerCategory](IDiagnosticsLogger`1 logger, TParam arg)
+   at Microsoft.EntityFrameworkCore.Diagnostics.RelationalLoggerExtensions.PendingModelChangesWarning(IDiagnosticsLogger`1 diagnostics, Type contextType)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.ValidateMigrations(Boolean useTransaction, String targetMigration)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.MigrateAsync(String targetMigration, CancellationToken cancellationToken)
+   at HelpDesk.Infrastructure.Persistence.DbSeeder.SeedAsync(IServiceProvider services) in D:\REPOSITORY\HelpDesk\HelpDesk.Infrastructure\Persistence\DbSeeder.cs:line 21
+   at Program.<Main>$(String[] args) in D:\REPOSITORY\HelpDesk\HelpDesk.API\Program.cs:line 84
+2025-11-21 16:12:00.751 -06:00 [INF] HelpDesk API started successfully
+2025-11-21 16:12:00.862 -06:00 [INF] Now listening on: http://localhost:5021
+2025-11-21 16:12:00.865 -06:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-11-21 16:12:00.866 -06:00 [INF] Hosting environment: Development
+2025-11-21 16:12:00.869 -06:00 [INF] Content root path: D:\REPOSITORY\HelpDesk\HelpDesk.API

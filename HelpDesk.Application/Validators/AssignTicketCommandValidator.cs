@@ -9,19 +9,19 @@ namespace HelpDesk.Application.Validators
         {
             RuleFor(x => x.TicketId)
                 .GreaterThan(0)
-                .WithMessage("TicketId must be a positive number.");
+                .WithMessage("El ID del ticket debe ser un número positivo.");
 
             RuleFor(x => x.EmployeeId)
                 .GreaterThan(0)
-                .WithMessage("EmployeeId must be a valid user id.");
+                .WithMessage("El ID del empleado debe ser válido.");
 
             RuleFor(x => x.Ip)
-                .NotEmpty().WithMessage("IP address is required.")
-                .MaximumLength(50).WithMessage("IP address is too long.");
+                .NotEmpty().WithMessage("La dirección IP es requerida.")
+                .MaximumLength(50).WithMessage("La dirección IP es demasiado larga.");
 
             RuleFor(x => x.UserAgent)
-                .NotEmpty().WithMessage("User-Agent is required.")
-                .MaximumLength(500).WithMessage("User-Agent header is too long.");
+                .NotEmpty().WithMessage("El User-Agent es requerido.")
+                .MaximumLength(500).WithMessage("El encabezado User-Agent es demasiado largo.");
         }
     }
 }

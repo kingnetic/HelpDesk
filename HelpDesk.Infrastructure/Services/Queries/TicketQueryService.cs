@@ -22,7 +22,9 @@ namespace HelpDesk.Infrastructure.Services.Queries
             var page = Math.Max(1, f.Page);
             var pageSize = Math.Clamp(f.PageSize, 1, 500);
 
-            var query = _context.Tickets.AsNoTracking();
+            var query = _context.Tickets
+                .AsNoTracking()
+                .Where(t => !t.IsDeleted); // Filtrar tickets eliminados
 
             if (f.StatusId.HasValue)
                 query = query.Where(t => t.StatusId == f.StatusId);
@@ -38,6 +40,9 @@ namespace HelpDesk.Infrastructure.Services.Queries
 
             if (f.AssignedToEmployeeId.HasValue)
                 query = query.Where(t => t.AssignedToEmployeeId == f.AssignedToEmployeeId);
+
+            if (f.CreatedById.HasValue)
+                query = query.Where(t => t.CreatedById == f.CreatedById);
 
             if (f.CreatedFrom.HasValue)
             {
@@ -77,6 +82,48 @@ namespace HelpDesk.Infrastructure.Services.Queries
                 TotalCount = total,
                 Page = page,
                 PageSize = pageSize
+            };
+        }
+
+
+        public async Task<TicketDto?> GetTicketByIdAsync(int id, CancellationToken ct)
+        {
+            var ticket = await _context.Tickets
+                .AsNoTracking()
+                .Where(t => !t.IsDeleted) // Filtrar tickets eliminados
+                .Include(t => t.Comments)
+                .Include(t => t.StatusHistory)
+                .FirstOrDefaultAsync(t => t.Id == id, ct);
+
+            if (ticket == null) return null;
+
+            return new TicketDto
+            {
+                Id = ticket.Id,
+                Title = ticket.Title,
+                Description = ticket.Description,
+                StatusId = ticket.StatusId,
+                PriorityId = ticket.PriorityId,
+                CategoryId = ticket.CategoryId,
+                TypeId = ticket.TypeId,
+                CreatedById = ticket.CreatedById,
+                AssignedToEmployeeId = ticket.AssignedToEmployeeId,
+                TicketCreatedAt = ticket.TicketCreatedAt,
+                Comments = ticket.Comments.Select(c => new TicketCommentDto
+                {
+                    Id = c.Id,
+                    TicketId = c.TicketId,
+                    UserId = c.UserId,
+                    Comment = c.Comment,
+                    CreatedAtLocal = c.CreatedAtLocal
+                }).ToList(),
+                History = ticket.StatusHistory.Select(h => new TicketStatusHistoryDto
+                {
+                    Id = h.Id,
+                    TicketId = h.TicketId,
+                    StatusId = h.StatusId,
+                    ChangedAt = h.OccurredAt
+                }).OrderByDescending(h => h.ChangedAt).ToList()
             };
         }
     }

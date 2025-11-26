@@ -14,9 +14,13 @@ namespace HelpDesk.Infrastructure.Services
             _context = context;
         }
 
-        public async Task<int> CreateSessionAsync(int userId, Guid jwtId, DateTime expiresAt, string? ip, string? userAgent)
+        public async Task<int> CreateSessionAsync(int userId, Guid jwtId, DateTime expiresAt, string? ip, string? userAgent, string? refreshToken = null, DateTime? refreshTokenExpiresAt = null)
         {
             var session = new UserSession(userId, jwtId, expiresAt, ip, userAgent);
+            if (refreshToken != null && refreshTokenExpiresAt.HasValue)
+            {
+                session.SetRefreshToken(refreshToken, refreshTokenExpiresAt.Value);
+            }
             _context.UserSessions.Add(session);
             await _context.SaveChangesAsync();
             return session.Id;
@@ -50,6 +54,12 @@ namespace HelpDesk.Infrastructure.Services
                 .FirstOrDefaultAsync();
 
             return s?.Id;
+        }
+
+        public async Task<UserSession?> GetSessionByRefreshTokenAsync(string refreshToken)
+        {
+            return await _context.UserSessions
+                .FirstOrDefaultAsync(x => x.RefreshToken == refreshToken);
         }
     }
 }

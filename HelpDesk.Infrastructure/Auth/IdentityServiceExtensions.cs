@@ -13,6 +13,7 @@ public static class IdentityServiceExtensions
             options.Password.RequireUppercase = true;
             options.Password.RequiredLength = 6;
             options.User.RequireUniqueEmail = true;
+            options.Lockout.AllowedForNewUsers = true;
             options.Lockout.MaxFailedAccessAttempts = 5;
             options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
         })
@@ -22,6 +23,9 @@ public static class IdentityServiceExtensions
         .AddUserManager<UserManager<User>>()
         .AddEntityFrameworkStores<HelpDeskDbContext>()
         .AddDefaultTokenProviders();
+
+        services.AddScoped<Microsoft.AspNetCore.Authorization.IAuthorizationHandler, HelpDesk.Infrastructure.Auth.TicketOwnerAuthorizationHandler>();
+        services.AddScoped<Microsoft.AspNetCore.Authorization.IAuthorizationHandler, HelpDesk.Infrastructure.Auth.TicketDtoAuthorizationHandler>();
 
         return services;
     }

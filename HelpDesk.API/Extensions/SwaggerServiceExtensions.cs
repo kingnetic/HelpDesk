@@ -17,7 +17,7 @@ namespace HelpDesk.API.Extensions
                     Description = "HelpDesk API with JWT Authentication"
                 });
 
-                // JWT security schema
+                // Esquema de seguridad JWT
                 c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
                 {
                     Name = "Authorization",

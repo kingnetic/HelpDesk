@@ -50,6 +50,17 @@ namespace HelpDesk.Domain.Entities.HelpDesk
             AddStatusRecord(initialStatusId);
         }
 
+        public void UpdateDetails(string title, string description, int priorityId, int categoryId, int? typeId)
+        {
+            if (string.IsNullOrWhiteSpace(title)) throw new DomainException("Title is required.");
+            Title = title;
+            Description = description ?? string.Empty;
+            PriorityId = priorityId;
+            CategoryId = categoryId;
+            TypeId = typeId;
+            Update();
+        }
+
         public void AssignTo(int employeeId, int assignedStatusId)
         {
             if (StatusId == assignedStatusId) throw new DomainException("Ticket is already in assigned status.");
@@ -67,6 +78,14 @@ namespace HelpDesk.Domain.Entities.HelpDesk
         public void ChangeStatus(int newStatusId)
         {
             if (StatusId == newStatusId) return;
+
+            // Usar Smart Enum para validar la transición
+            var currentStatus = ValueObjects.TicketStatus.FromId(StatusId);
+            var newStatus = ValueObjects.TicketStatus.FromId(newStatusId);
+
+            // El Smart Enum valida y lanza excepción si no es válido
+            currentStatus.ValidateTransitionTo(newStatus);
+
             StatusId = newStatusId;
             AddStatusRecord(newStatusId);
             Update();

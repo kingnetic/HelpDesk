@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación de Email - HelpDesk</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .icon.success {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .icon.error {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo">🎫 HelpDesk</div>
+
+        <div class="icon success" id="icon">
+            ✓
+        </div>
+
+        <h1 id="title">¡Email Confirmado!</h1>
+
+        <p id="message">
+            Tu dirección de correo electrónico ha sido verificada exitosamente.
+            Ahora puedes iniciar sesión en tu cuenta de HelpDesk.
+        </p>
+
+        <a href="/" class="button" id="actionButton">Ir a la API</a>
+
+        <div class="footer">
+            <p>HelpDesk System &copy; 2025</p>
+        </div>
+    </div>
+
+    <script>
+        // Obtener parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const success = urlParams.get('success');
+
+        // Si hay un parámetro de error
+        if (success === 'false') {
+            document.getElementById('icon').classList.remove('success');
+            document.getElementById('icon').classList.add('error');
+            document.getElementById('icon').textContent = '✕';
+            document.getElementById('title').textContent = 'Error en la Confirmación';
+            document.getElementById('message').textContent = 'No se pudo confirmar tu email. El enlace puede haber expirado o ser inválido. Por favor, solicita un nuevo enlace de confirmación.';
+            document.getElementById('actionButton').textContent = 'Contactar Soporte';
+            document.getElementById('actionButton').href = 'mailto:support@helpdesk.com';
+        }
+    </script>
+</body>
+
+</html>

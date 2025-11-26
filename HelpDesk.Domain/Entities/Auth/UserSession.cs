@@ -16,6 +16,8 @@ public class UserSession : BaseEntity
     public string? LogoutUserAgent { get; private set; }
     public string? LogoutReason { get; private set; }
     public bool IsActiveSession { get; private set; } = true;
+    public string? RefreshToken { get; private set; }
+    public DateTime? RefreshTokenExpiresAt { get; private set; }
 
     private UserSession() { }
 
@@ -26,6 +28,12 @@ public class UserSession : BaseEntity
         TokenExpiresAt = expiresAt;
         LoginIpAddress = ip;
         LoginUserAgent = userAgent;
+    }
+
+    public void SetRefreshToken(string token, DateTime expiresAt)
+    {
+        RefreshToken = token;
+        RefreshTokenExpiresAt = expiresAt;
     }
 
     public void Close(string? reason, string? ip, string? userAgent)

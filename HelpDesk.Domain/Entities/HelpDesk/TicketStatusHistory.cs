@@ -6,7 +6,7 @@ namespace HelpDesk.Domain.Entities.HelpDesk
     public class TicketStatusHistory : BaseEntity
     {
         public int TicketId { get; private set; }
-        public Ticket Ticket { get; private set; }   // <-- Navegación necesaria
+        public Ticket Ticket { get; private set; } = null!;
 
         public int StatusId { get; private set; }
         public DateTime OccurredAt { get; private set; } = DateTime.UtcNow;

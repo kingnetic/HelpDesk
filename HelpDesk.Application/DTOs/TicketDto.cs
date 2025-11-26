@@ -16,6 +16,7 @@ namespace HelpDesk.Application.DTOs
         public int? AssignedToEmployeeId { get; set; }
         public DateTime TicketCreatedAt { get; set; }
         public List<TicketCommentDto> Comments { get; set; } = new();
+        public List<TicketStatusHistoryDto> History { get; set; } = new();
     }
 
     public class TicketCommentDto

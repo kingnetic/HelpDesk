@@ -8,6 +8,7 @@ using HelpDesk.Infrastructure.Services.Queries;
 using Mapster;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
 
@@ -33,16 +34,17 @@ namespace HelpDesk.Infrastructure
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
-            
+
             // IHttpContextAccessor
             services.AddHttpContextAccessor();
 
-            // Session & Auth services
+            // Servicios de sesión y autenticación
             services.AddScoped<IUserSessionService, UserSessionService>();
             services.AddScoped<IAuthService, AuthService>();
             services.AddScoped<ITicketQueryService, TicketQueryService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAuditService, AuditService>();
+            services.AddScoped<ISecurityAuditService, SecurityAuditService>();
 
 
             // 6. Email (MailerSend SMTP)
@@ -51,6 +53,15 @@ namespace HelpDesk.Infrastructure
 
             // 7. Mapster
             TypeAdapterConfig.GlobalSettings.Scan(Assembly.Load("HelpDesk.Application"));
+
+            // 8. Policy-Based Authorization
+            services.AddScoped<IRolePermissionService, RolePermissionService>();
+            services.AddScoped<IAuthorizationHandler, PermissionHandler>();
+
+            // Reemplazar el proveedor de políticas por defecto con el proveedor dinámico
+            services.AddSingleton<IAuthorizationPolicyProvider, DynamicPolicyProvider>();
+
+            services.AddAuthorization();
 
             return services;
         }

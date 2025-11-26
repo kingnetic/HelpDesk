@@ -15,7 +15,13 @@ namespace HelpDesk.Api.Controllers
     public class TicketsController : ControllerBase
     {
         private readonly IMediator _mediator;
-        public TicketsController(IMediator mediator) => _mediator = mediator;
+        private readonly IAuthorizationService _authorizationService;
+
+        public TicketsController(IMediator mediator, IAuthorizationService authorizationService)
+        {
+            _mediator = mediator;
+            _authorizationService = authorizationService;
+        }
 
         /// <summary>
         /// Obtiene tickets filtrados y paginados.
@@ -24,19 +30,42 @@ namespace HelpDesk.Api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetTickets([FromQuery] TicketFilterRequest filter)
         {
+            // Verificar si tiene permiso para ver todos los tickets
+            var authResult = await _authorizationService.AuthorizeAsync(User, "ViewAllTickets");
+            
+            // Si NO tiene permiso de ver todos, filtrar por su ID (comportamiento para Customer)
+            if (!authResult.Succeeded)
+            {
+                var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+                filter.CreatedById = userId;
+            }
+
             var result = await _mediator.Send(new GetTicketsQuery { Filter = filter });
             return Ok(result);
         }
 
+        /// <summary>
+        /// Crea un nuevo ticket.
+        /// </summary>
+        /// <param name="command">Datos del ticket a crear.</param>
+        /// <returns>El ID del ticket creado.</returns>
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateTicketCommand command)
         {
-            var id = await _mediator.Send(command);
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var secureCommand = command with { CreatedById = userId };
+            
+            var id = await _mediator.Send(secureCommand);
             return CreatedAtAction(nameof(GetById), new { id }, new { id });
         }
 
-        [Authorize]
-        [Authorize]
+        /// <summary>
+        /// Asigna un ticket a un empleado de soporte.
+        /// Requiere permiso 'AssignTicket'.
+        /// </summary>
+        /// <param name="ticketId">ID del ticket.</param>
+        /// <param name="employeeId">ID del empleado.</param>
+        [Authorize(Policy = "AssignTicket")]
         [HttpPost("{ticketId:int}/assign/{employeeId:int}")]
         public async Task<IActionResult> AssignTicket(int ticketId, int employeeId)
         {
@@ -50,10 +79,22 @@ namespace HelpDesk.Api.Controllers
         }
 
 
+        /// <summary>
+        /// Añade una respuesta/comentario a un ticket.
+        /// </summary>
+        /// <param name="id">ID del ticket.</param>
+        /// <param name="request">Contenido del comentario.</param>
         [Authorize]
         [HttpPost("{id}/reply")]
         public async Task<IActionResult> Reply(int id, ReplyTicketRequest request)
         {
+            // Verificar acceso
+            var ticket = await _mediator.Send(new GetTicketByIdQuery(id));
+            if (ticket == null) return NotFound();
+
+            var authResult = await _authorizationService.AuthorizeAsync(User, ticket, HelpDesk.Infrastructure.Auth.TicketOperations.Read);
+            if (!authResult.Succeeded) return Forbid();
+
             var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
 
             var command = new ReplyTicketCommand(id, userId, request.Comment);
@@ -66,7 +107,13 @@ namespace HelpDesk.Api.Controllers
         public record ReplyTicketRequest(string Comment);
 
 
-        [Authorize]
+        /// <summary>
+        /// Cierra un ticket definitivamente.
+        /// Requiere permiso 'CloseTicket'.
+        /// </summary>
+        /// <param name="id">ID del ticket.</param>
+        /// <param name="cmd">Comando de cierre.</param>
+        [Authorize(Policy = "CloseTicket")]
         [HttpPost("{id}/close")]
         public async Task<IActionResult> Close(int id, [FromBody] CloseTicketCommand cmd)
         {
@@ -75,12 +122,101 @@ namespace HelpDesk.Api.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Marca un ticket como resuelto.
+        /// Requiere permiso 'ResolveTicket'.
+        /// </summary>
+        /// <param name="id">ID del ticket.</param>
+        /// <param name="request">Estado de resolución.</param>
+        [Authorize(Policy = "ResolveTicket")]
+        [HttpPost("{id}/resolve")]
+        public async Task<IActionResult> Resolve(int id, [FromBody] ResolveTicketRequest request)
+        {
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var cmd = new ResolveTicketCommand(id, userId, request.StatusId);
+            await _mediator.Send(cmd);
+            return NoContent();
+        }
+
+        public record ResolveTicketRequest(int StatusId);
+
+        /// <summary>
+        /// Obtiene los detalles de un ticket por su ID.
+        /// </summary>
+        /// <param name="id">ID del ticket.</param>
+        /// <returns>Detalles del ticket incluyendo comentarios e historial.</returns>
         [Authorize]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            // Query handler not implemented in this minimal scaffold; return 501 for now
-            return StatusCode(501);
+            var result = await _mediator.Send(new GetTicketByIdQuery(id));
+            if (result == null) return NotFound();
+
+            var authResult = await _authorizationService.AuthorizeAsync(User, result, HelpDesk.Infrastructure.Auth.TicketOperations.Read);
+            if (!authResult.Succeeded) return Forbid();
+
+            return Ok(result);
+        }
+
+        /// <summary>
+        /// Actualiza la información básica de un ticket.
+        /// </summary>
+        /// <param name="id">ID del ticket.</param>
+        /// <param name="request">Datos a actualizar.</param>
+        [Authorize]
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] UpdateTicketRequest request)
+        {
+            // Verificar acceso
+            var ticket = await _mediator.Send(new GetTicketByIdQuery(id));
+            if (ticket == null) return NotFound();
+
+            var authResult = await _authorizationService.AuthorizeAsync(User, ticket, HelpDesk.Infrastructure.Auth.TicketOperations.Update);
+            if (!authResult.Succeeded) return Forbid();
+
+            var userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier)!);
+            var command = new UpdateTicketCommand(
+                id, 
+                userId, 
+                request.Title, 
+                request.Description, 
+                request.PriorityId, 
+                request.CategoryId, 
+                request.TypeId);
+
+            var result = await _mediator.Send(command);
+            if (!result) return NotFound();
+            return NoContent();
+        }
+
+        public record UpdateTicketRequest(string Title, string Description, int PriorityId, int CategoryId, int? TypeId);
+
+        /// <summary>
+        /// Elimina un ticket del sistema (soft delete).
+        /// Requiere permiso 'DeleteTicket'.
+        /// </summary>
+        /// <param name="id">ID del ticket a eliminar.</param>
+        [Authorize(Policy = "DeleteTicket")]
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            var result = await _mediator.Send(new DeleteTicketCommand(id));
+            if (!result) return NotFound();
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Restaura un ticket eliminado (soft delete).
+        /// Requiere permiso 'DeleteTicket'.
+        /// </summary>
+        /// <param name="id">ID del ticket a restaurar.</param>
+        [Authorize(Policy = "DeleteTicket")]
+        [HttpPost("{id}/restore")]
+        public async Task<IActionResult> Restore(int id)
+        {
+            var result = await _mediator.Send(new RestoreTicketCommand(id));
+            if (!result) return NotFound(new { message = "Ticket no encontrado" });
+            return Ok(new { message = "Ticket restaurado correctamente" });
         }
     }
 }

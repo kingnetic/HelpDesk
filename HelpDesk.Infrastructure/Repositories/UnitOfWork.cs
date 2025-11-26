@@ -9,17 +9,17 @@ namespace HelpDesk.Infrastructure.Repositories
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly HelpDeskDbContext _ctx;
+        private readonly HelpDeskDbContext _context;
         private readonly Dictionary<Type, object> _repos = new();
-        public UnitOfWork(HelpDeskDbContext ctx) => _ctx = ctx;
+        public UnitOfWork(HelpDeskDbContext context) => _context = context;
 
         public IGenericRepository<T> Repository<T>() where T : class
         {
             var type = typeof(T);
-            if (!_repos.ContainsKey(type)) _repos[type] = new GenericRepository<T>(_ctx);
+            if (!_repos.ContainsKey(type)) _repos[type] = new GenericRepository<T>(_context);
             return (IGenericRepository<T>)_repos[type]!;
         }
 
-        public Task<int> SaveChangesAsync(CancellationToken ct = default) => _ctx.SaveChangesAsync(ct);
+        public Task<int> SaveChangesAsync(CancellationToken ct = default) => _context.SaveChangesAsync(ct);
     }
 }

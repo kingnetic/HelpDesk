@@ -23,6 +23,27 @@ namespace HelpDesk.Infrastructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("HelpDesk.Domain.Entities.Auth.RolePermission", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Permission")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RolePermissions", "security");
+                });
+
             modelBuilder.Entity("HelpDesk.Domain.Entities.Auth.UserSession", b =>
                 {
                     b.Property<int>("Id")
@@ -34,7 +55,13 @@ namespace HelpDesk.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<bool>("IsActiveSession")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<Guid>("JwtId")
@@ -66,6 +93,12 @@ namespace HelpDesk.Infrastructure.Migrations
                         .HasMaxLength(1000)
                         .HasColumnType("nvarchar(1000)");
 
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("RefreshTokenExpiresAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("TokenExpiresAt")
                         .HasColumnType("datetime2");
 
@@ -78,6 +111,63 @@ namespace HelpDesk.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("UserSessions", "security");
+                });
+
+            modelBuilder.Entity("HelpDesk.Domain.Entities.Catalog.Catalog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("DisplayOrder")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(0);
+
+                    b.Property<bool>("IsActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Value")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Name");
+
+                    b.HasIndex("ParentId");
+
+                    b.HasIndex("ParentId", "DisplayOrder");
+
+                    b.ToTable("Catalogs", "catalog");
                 });
 
             modelBuilder.Entity("HelpDesk.Domain.Entities.HelpDesk.Ticket", b =>
@@ -100,9 +190,15 @@ namespace HelpDesk.Infrastructure.Migrations
                     b.Property<int>("CreatedById")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("PriorityId")
                         .HasColumnType("int");
@@ -129,6 +225,53 @@ namespace HelpDesk.Infrastructure.Migrations
                     b.ToTable("Tickets", "helpdesk");
                 });
 
+            modelBuilder.Entity("HelpDesk.Domain.Entities.HelpDesk.TicketAuditLog", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Action")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Detail")
+                        .HasColumnType("text");
+
+                    b.Property<string>("IpAddress")
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("TicketId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserAgent")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TicketAuditLogs", "helpdesk");
+                });
+
             modelBuilder.Entity("HelpDesk.Domain.Entities.HelpDesk.TicketComment", b =>
                 {
                     b.Property<int>("Id")
@@ -146,6 +289,12 @@ namespace HelpDesk.Infrastructure.Migrations
 
                     b.Property<DateTime>("CreatedAtLocal")
                         .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
 
                     b.Property<int>("TicketId")
                         .HasColumnType("int");
@@ -174,6 +323,12 @@ namespace HelpDesk.Infrastructure.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("OccurredAt")
                         .HasColumnType("datetime2");
 
@@ -193,7 +348,7 @@ namespace HelpDesk.Infrastructure.Migrations
                     b.ToTable("TicketStatusHistory", "helpdesk");
                 });
 
-            modelBuilder.Entity("HelpDesk.Domain.ValueObjects.CatalogItem", b =>
+            modelBuilder.Entity("HelpDesk.Domain.Entities.Security.SecurityAuditLog", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -201,19 +356,47 @@ namespace HelpDesk.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("Type")
+                    b.Property<DateTime?>("DeletedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("DurationMs")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("ErrorMessage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IpAddress")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Method")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StatusCode")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserAgent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("CatalogItems", "helpdesk");
+                    b.ToTable("SecurityAuditLogs", "security");
                 });
 
             modelBuilder.Entity("HelpDesk.Infrastructure.Identity.Role", b =>
@@ -421,6 +604,16 @@ namespace HelpDesk.Infrastructure.Migrations
                     b.ToTable("UserTokens", "security");
                 });
 
+            modelBuilder.Entity("HelpDesk.Domain.Entities.Catalog.Catalog", b =>
+                {
+                    b.HasOne("HelpDesk.Domain.Entities.Catalog.Catalog", "Parent")
+                        .WithMany("Children")
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Restrict);
+
+                    b.Navigation("Parent");
+                });
+
             modelBuilder.Entity("HelpDesk.Domain.Entities.HelpDesk.TicketComment", b =>
                 {
                     b.HasOne("HelpDesk.Domain.Entities.HelpDesk.Ticket", null)
@@ -490,6 +683,11 @@ namespace HelpDesk.Infrastructure.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("HelpDesk.Domain.Entities.Catalog.Catalog", b =>
+                {
+                    b.Navigation("Children");
                 });
 
             modelBuilder.Entity("HelpDesk.Domain.Entities.HelpDesk.Ticket", b =>

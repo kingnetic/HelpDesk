@@ -1,6 +1,5 @@
 ﻿using HelpDesk.Domain.Entities.Auth;
 using HelpDesk.Domain.Entities.HelpDesk;
-using HelpDesk.Domain.ValueObjects;
 using HelpDesk.Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
@@ -8,30 +7,37 @@ using Microsoft.EntityFrameworkCore;
 namespace HelpDesk.Infrastructure.Persistence
 {
     public class HelpDeskDbContext
-        : IdentityDbContext<User, Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
+        : IdentityDbContext<User, HelpDesk.Infrastructure.Identity.Role, int, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>
     {
         public HelpDeskDbContext(DbContextOptions<HelpDeskDbContext> options)
             : base(options)
         {
         }
 
-        // Helpdesk
+        // Mesa de ayuda
         public DbSet<Ticket> Tickets => Set<Ticket>();
         public DbSet<TicketComment> TicketComments => Set<TicketComment>();
         public DbSet<TicketStatusHistory> StatusHistory => Set<TicketStatusHistory>();
-        public DbSet<CatalogItem> CatalogItems => Set<CatalogItem>();
 
-        // Auth / Sessions
+        // Catálogo recursivo
+        public DbSet<Domain.Entities.Catalog.Catalog> Catalogs => Set<Domain.Entities.Catalog.Catalog>();
+
+        // Autenticación / Sesiones
         public DbSet<UserSession> UserSessions => Set<UserSession>();
+        public DbSet<RolePermission> RolePermissions => Set<RolePermission>();
+
+        // Auditoría
+        public DbSet<TicketAuditLog> TicketAuditLogs => Set<TicketAuditLog>();
+        public DbSet<Domain.Entities.Security.SecurityAuditLog> SecurityAuditLogs => Set<Domain.Entities.Security.SecurityAuditLog>();
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            // Identity schema
+            // Esquema de Identity
             builder.HasDefaultSchema("security");
 
-            // Apply configurations
+            // Aplicar configuraciones
             builder.ApplyConfigurationsFromAssembly(typeof(HelpDeskDbContext).Assembly);
         }
     }

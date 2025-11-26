@@ -8,18 +8,26 @@
 
 	<ItemGroup>
 		<!-- Swagger -->
-		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.0" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
 
-		<!-- EF Core Tools (required for migrations) -->
-		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11" PrivateAssets="All" />
+		<!-- FluentValidation -->
+		<PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.0" />
 
-		<!-- JWT Authentication -->
+		<!-- Serilog -->
+		<PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+		<PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1" />
+		<PackageReference Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+		<PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+
+		<!-- EF Core Tools (para migraciones) -->
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.11" PrivateAssets="All" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<ProjectReference Include="..\HelpDesk.Infrastructure\HelpDesk.Infrastructure.csproj" />
 		<ProjectReference Include="..\HelpDesk.Application\HelpDesk.Application.csproj" />
+		<ProjectReference Include="..\HelpDesk.ServiceDefaults\HelpDesk.ServiceDefaults.csproj" />
 	</ItemGroup>
 
 </Project>

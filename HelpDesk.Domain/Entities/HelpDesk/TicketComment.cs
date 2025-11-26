@@ -11,7 +11,7 @@ namespace HelpDesk.Domain.Entities.HelpDesk
         public string Comment { get; private set; }
         public DateTime CreatedAtLocal { get; private set; } = DateTime.UtcNow;
 
-        public TicketComment() { }
+        public TicketComment() { Comment = null!; }
 
         public TicketComment(int ticketId, int userId, string comment)
         {
