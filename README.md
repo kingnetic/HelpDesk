@@ -164,12 +164,3 @@ Al iniciar la aplicación se crean automáticamente:
 - **Admin**: `admin@helpdesk.com` / `Admin@123`
 - **Support**: `support@helpdesk.com` / `Support@123`
 
-## Seguridad
-
-- ✅ Contraseñas encriptadas con PBKDF2
-- ✅ Tokens JWT con expiración configurable
-- ✅ Bloqueo automático de cuenta
-- ✅ Validación estricta de permisos
-- ✅ Aislamiento de datos por usuario
-- ✅ Auditoría completa de acciones
-
